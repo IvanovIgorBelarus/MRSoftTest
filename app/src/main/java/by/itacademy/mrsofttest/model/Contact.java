@@ -14,10 +14,10 @@ public class Contact {
     public int phone;
 
     public Contact(String firstName,
-            String secondName,
-            String surName,
-            String placeOfWork,
-            int phone) {
+                   String secondName,
+                   String surName,
+                   String placeOfWork,
+                   int phone) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.surName = surName;

@@ -20,7 +20,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivityPresenterImpl {
+public class MainActivityPresenterImpl implements MainActivityPresenter {
 
     private MainActivityListener mainActivityListener;
     private ContactDatabase db = App.getInstance().getDatabase();
@@ -32,6 +32,7 @@ public class MainActivityPresenterImpl {
         this.mainActivityListener = mainActivityListener;
     }
 
+    @Override
     public void insertContacts() {
         if (!getPref()) {
             contactDao.insertAll(ContactList.getList()).subscribeOn(Schedulers.io()).subscribe();
@@ -40,6 +41,7 @@ public class MainActivityPresenterImpl {
 
     }
 
+    @Override
     public void setOnChangeListener(SearchView searchView, ItemAdapter adapter) {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -55,6 +57,7 @@ public class MainActivityPresenterImpl {
         });
     }
 
+    @Override
     public void getContacts() {
         disposable = contactDao.getAll()
                 .subscribeOn(Schedulers.io())
@@ -65,6 +68,7 @@ public class MainActivityPresenterImpl {
                 });
     }
 
+    @Override
     public void sortContact() {
         Comparator<Contact> comparator = (o1, o2) -> {
             String fullName1 = String.format("%s %s %s", o1.firstName, o1.secondName, o1.surName);
@@ -75,6 +79,7 @@ public class MainActivityPresenterImpl {
         mainActivityListener.showContacts(contactList);
     }
 
+    @Override
     public void closeDisposable() {
         disposable.dispose();
     }

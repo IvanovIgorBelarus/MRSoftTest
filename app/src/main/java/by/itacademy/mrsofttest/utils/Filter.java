@@ -13,7 +13,7 @@ public class Filter {
             return contactList;
         }
         for (Contact contact : contactList) {
-            fullName=String.format("%s %s %s",contact.firstName, contact.secondName, contact.surName);
+            fullName = String.format("%s %s %s", contact.firstName, contact.secondName, contact.surName);
             if (fullName.toLowerCase().contains(search.toLowerCase())){
                 list.add(contact);
             }

@@ -2,7 +2,6 @@ package by.itacademy.mrsofttest.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import by.itacademy.mrsofttest.R;
 import by.itacademy.mrsofttest.model.Contact;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
-    private List<Contact> contactList=new ArrayList<>();
+    private List<Contact> contactList = new ArrayList<>();
     private final LayoutInflater inflater;
 
     public ItemAdapter(Context context) {
@@ -44,7 +43,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public void update(List<Contact> contactList) {
         this.contactList = contactList;
-        Log.d("mytag", String.format("size adapter=%s", this.contactList.size()));
         notifyDataSetChanged();
     }
 
@@ -60,9 +58,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             placeOfWork = itemView.findViewById(R.id.placeOfWork);
             phone = itemView.findViewById(R.id.phone);
         }
+
         @SuppressLint("SetTextI18n")
-        public void onBind(Contact contact){
-            fullName=String.format("%s %s %s",contact.firstName, contact.secondName, contact.surName);
+        public void onBind(Contact contact) {
+            fullName = String.format("%s %s %s", contact.firstName, contact.secondName, contact.surName);
             name.setText(fullName);
             placeOfWork.setText(contact.placeOfWork);
             phone.setText(Integer.valueOf(contact.phone).toString());

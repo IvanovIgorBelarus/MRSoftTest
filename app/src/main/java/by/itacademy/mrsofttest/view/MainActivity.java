@@ -12,11 +12,12 @@ import java.util.List;
 import by.itacademy.mrsofttest.R;
 import by.itacademy.mrsofttest.model.Contact;
 import by.itacademy.mrsofttest.presenter.MainActivityListener;
+import by.itacademy.mrsofttest.presenter.MainActivityPresenter;
 import by.itacademy.mrsofttest.presenter.MainActivityPresenterImpl;
 import by.itacademy.mrsofttest.utils.ItemAdapter;
 
 public class MainActivity extends AppCompatActivity implements MainActivityListener {
-    private MainActivityPresenterImpl presenter;
+    private MainActivityPresenter presenter;
     private SearchView searchView;
     private com.google.android.material.floatingactionbutton.FloatingActionButton sortButton;
     private ItemAdapter adapter;
@@ -25,10 +26,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        adapter = new ItemAdapter(this);
+
         searchView = findViewById(R.id.searchView);
         sortButton = findViewById(R.id.doSort);
         sortButton.setOnClickListener(v -> presenter.sortContact());
+        adapter = new ItemAdapter(this);
         initRecycler();
         presenter = new MainActivityPresenterImpl(this);
         presenter.getContacts();
