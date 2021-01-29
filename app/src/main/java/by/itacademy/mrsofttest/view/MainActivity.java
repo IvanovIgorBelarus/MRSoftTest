@@ -1,8 +1,10 @@
-package by.itacademy.mrsofttest;
+package by.itacademy.mrsofttest.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import by.itacademy.mrsofttest.R;
 
 public class MainActivity extends AppCompatActivity {
 

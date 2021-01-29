@@ -1,21 +1,28 @@
 package by.itacademy.mrsofttest.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Contact {
-    private String firstName;
-    private String secondName;
-    private String surName;
-    private String placeOfWork;
-    private int phone;
+    @PrimaryKey
+    public int id;
+    public String firstName;
+    public String secondName;
+    public String surName;
+    public String placeOfWork;
+    public int phone;
+
     Contact(String firstName,
             String secondName,
             String surName,
             String placeOfWork,
-            int phone){
-        this.firstName=firstName;
-        this.secondName=secondName;
-        this.surName=surName;
-        this.placeOfWork=placeOfWork;
-        this.phone=phone;
+            int phone) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.surName = surName;
+        this.placeOfWork = placeOfWork;
+        this.phone = phone;
     }
 
     public String getFirstName() {
