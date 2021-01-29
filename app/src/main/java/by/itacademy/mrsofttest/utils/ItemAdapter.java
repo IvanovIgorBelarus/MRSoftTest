@@ -1,6 +1,7 @@
 package by.itacademy.mrsofttest.utils;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.itacademy.mrsofttest.R;
@@ -17,7 +19,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private List<Contact> contactList;
     private final LayoutInflater inflater;
 
-    ItemAdapter(Context context) {
+    public ItemAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
     }
 
@@ -40,6 +42,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public void update(List<Contact> contactList) {
         this.contactList = contactList;
+        Log.d("mytag",String.format("size=%s",this.contactList.size()));
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {

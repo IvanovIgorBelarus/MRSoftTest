@@ -3,9 +3,9 @@ package by.itacademy.mrsofttest.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "contacts")
 public class Contact {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
     public String firstName;
     public String secondName;
@@ -13,7 +13,7 @@ public class Contact {
     public String placeOfWork;
     public int phone;
 
-    Contact(String firstName,
+    public Contact(String firstName,
             String secondName,
             String surName,
             String placeOfWork,
@@ -23,25 +23,5 @@ public class Contact {
         this.surName = surName;
         this.placeOfWork = placeOfWork;
         this.phone = phone;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public String getSurName() {
-        return surName;
-    }
-
-    public String getPlaceOfWork() {
-        return placeOfWork;
-    }
-
-    public int getPhone() {
-        return phone;
     }
 }
