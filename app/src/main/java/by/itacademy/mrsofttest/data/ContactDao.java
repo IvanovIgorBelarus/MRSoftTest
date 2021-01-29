@@ -8,13 +8,12 @@ import java.util.List;
 
 import by.itacademy.mrsofttest.model.Contact;
 import io.reactivex.Completable;
-import io.reactivex.Flowable;
-
+import io.reactivex.Observable;
 
 @Dao
 public interface ContactDao {
     @Query("SELECT * FROM contacts")
-    Flowable<List<Contact>> getAll();
+    Observable<List<Contact>> getAll();
 
     @Insert
     Completable insertAll(List<Contact> contactList);

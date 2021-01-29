@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.MainActivity"
+    android:padding="8dp">
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/seachView"
+        android:id="@+id/searchView"
         app:defaultQueryHint="@string/seach"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -18,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seachView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
