@@ -18,6 +18,7 @@ import by.itacademy.mrsofttest.utils.ItemAdapter;
 public class MainActivity extends AppCompatActivity implements MainActivityListener {
     private MainActivityPresenterImpl presenter;
     private SearchView searchView;
+    private com.google.android.material.floatingactionbutton.FloatingActionButton sortButton;
     private ItemAdapter adapter;
 
     @Override
@@ -26,10 +27,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityListe
         setContentView(R.layout.activity_main);
         adapter = new ItemAdapter(this);
         searchView = findViewById(R.id.searchView);
+        sortButton = findViewById(R.id.doSort);
+        sortButton.setOnClickListener(v -> presenter.sortContact());
         initRecycler();
         presenter = new MainActivityPresenterImpl(this);
-        presenter.insertContacts();
         presenter.getContacts();
+        presenter.insertContacts();
         presenter.setOnChangeListener(searchView, adapter);
     }
 

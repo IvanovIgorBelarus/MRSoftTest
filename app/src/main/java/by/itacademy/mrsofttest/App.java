@@ -25,4 +25,5 @@ public class App extends Application {
     public ContactDatabase getDatabase() {
         return database;
     }
+
 }
