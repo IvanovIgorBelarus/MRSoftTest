@@ -15,13 +15,14 @@ import dagger.Provides;
 public class DataModule {
     @Provides
     @Singleton
-    ContactDatabase providerContactDatabase(Context context){
+    ContactDatabase providerContactDatabase(Context context) {
         return Room.databaseBuilder(context, ContactDatabase.class, "db")
                 .build();
     }
+
     @Provides
     @Singleton
-    ContactDao providerContactDao(ContactDatabase db){
+    ContactDao providerContactDao(ContactDatabase db) {
         return db.contactDao();
     }
 }

@@ -30,7 +30,6 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     ItemAdapter adapter;
     @Inject
     ContactDatabase db;
-
     @Inject
     ContactDao contactDao;
     private Disposable disposable;

@@ -11,6 +11,7 @@ public class Filter {
     @Inject
     public Filter() {
     }
+
     public List<Contact> filterContact(String search, List<Contact> contactList) {
         List<Contact> list = new ArrayList<>();
         String fullName;
