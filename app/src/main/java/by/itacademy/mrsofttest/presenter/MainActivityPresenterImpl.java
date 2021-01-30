@@ -9,6 +9,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import by.itacademy.mrsofttest.App;
 import by.itacademy.mrsofttest.data.ContactDao;
 import by.itacademy.mrsofttest.data.ContactDatabase;
@@ -22,14 +24,21 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivityPresenterImpl implements MainActivityPresenter {
 
-    private MainActivityListener mainActivityListener;
-    private ContactDatabase db = App.getInstance().getDatabase();
-    private ContactDao contactDao = db.contactDao();
+    @Inject
+    Filter filter;
+    @Inject
+    ItemAdapter adapter;
+    @Inject
+    ContactDatabase db;
+
+    @Inject
+    ContactDao contactDao;
     private Disposable disposable;
     private List<Contact> contactList = new ArrayList<>();
 
-    public MainActivityPresenterImpl(MainActivityListener mainActivityListener) {
-        this.mainActivityListener = mainActivityListener;
+    @Inject
+    public MainActivityPresenterImpl() {
+        App.getComponent().inject(this);
     }
 
     @Override
@@ -42,7 +51,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     }
 
     @Override
-    public void setOnChangeListener(SearchView searchView, ItemAdapter adapter) {
+    public void setOnChangeListener(SearchView searchView) {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -51,7 +60,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.update(Filter.filterContact(newText, contactList));
+                adapter.update(filter.filterContact(newText, contactList));
                 return true;
             }
         });
@@ -64,7 +73,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(contactList -> {
                     this.contactList = contactList;
-                    mainActivityListener.showContacts(contactList);
+                    adapter.update(contactList);
                 });
     }
 
@@ -76,7 +85,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
             return fullName1.compareTo(fullName2);
         };
         Collections.sort(contactList, comparator);
-        mainActivityListener.showContacts(contactList);
+        adapter.update(contactList);
     }
 
     @Override
@@ -85,7 +94,8 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     }
 
     private void setPref() {
-        App.getInstance().getSharedPreferences("pref", Activity.MODE_PRIVATE)
+        App.getInstance()
+                .getSharedPreferences("pref", Activity.MODE_PRIVATE)
                 .edit()
                 .putBoolean("state", true)
                 .commit();

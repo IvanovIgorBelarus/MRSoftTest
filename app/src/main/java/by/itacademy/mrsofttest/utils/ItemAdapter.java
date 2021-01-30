@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import by.itacademy.mrsofttest.R;
 import by.itacademy.mrsofttest.model.Contact;
 
@@ -20,6 +22,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private List<Contact> contactList = new ArrayList<>();
     private final LayoutInflater inflater;
 
+    @Inject
     public ItemAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
     }
