@@ -8,8 +8,6 @@ import java.util.List;
 import by.itacademy.mrsofttest.model.Contact;
 
 public class ContactList {
-    private static List<Contact> contactList = new ArrayList<>();
-
     private ContactList() {
     }
 

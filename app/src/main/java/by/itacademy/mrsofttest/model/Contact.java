@@ -13,11 +13,13 @@ public class Contact {
     public String placeOfWork;
     public int phone;
 
-    public Contact(String firstName,
-                   String secondName,
-                   String surName,
-                   String placeOfWork,
-                   int phone) {
+    public Contact(
+            String firstName,
+            String secondName,
+            String surName,
+            String placeOfWork,
+            int phone
+    ) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.surName = surName;

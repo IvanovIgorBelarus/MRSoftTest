@@ -12,9 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import by.itacademy.mrsofttest.App;
-import by.itacademy.mrsofttest.data.ContactDao;
-import by.itacademy.mrsofttest.data.ContactDatabase;
-import by.itacademy.mrsofttest.data.ContactList;
+import by.itacademy.mrsofttest.data.DataRepository;
 import by.itacademy.mrsofttest.model.Contact;
 import by.itacademy.mrsofttest.utils.Filter;
 import by.itacademy.mrsofttest.utils.ItemAdapter;
@@ -29,9 +27,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     @Inject
     ItemAdapter adapter;
     @Inject
-    ContactDatabase db;
-    @Inject
-    ContactDao contactDao;
+    DataRepository dataRepository;
     private Disposable disposable;
     private List<Contact> contactList = new ArrayList<>();
 
@@ -43,10 +39,8 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     @Override
     public void insertContacts() {
         if (!getPref()) {
-            contactDao.insertAll(ContactList.getList()).subscribeOn(Schedulers.io()).subscribe();
             setPref();
         }
-
     }
 
     @Override
@@ -67,7 +61,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
 
     @Override
     public void getContacts() {
-        disposable = contactDao.getAll()
+        disposable = dataRepository.getContacts()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(contactList -> {
@@ -104,5 +98,4 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
         return App.getInstance().getSharedPreferences("pref", Activity.MODE_PRIVATE)
                 .getBoolean("state", false);
     }
-
 }

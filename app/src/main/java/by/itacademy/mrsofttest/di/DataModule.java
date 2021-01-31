@@ -8,10 +8,13 @@ import javax.inject.Singleton;
 
 import by.itacademy.mrsofttest.data.ContactDao;
 import by.itacademy.mrsofttest.data.ContactDatabase;
+import by.itacademy.mrsofttest.data.DataRepository;
+import by.itacademy.mrsofttest.data.DataRepositoryImpl;
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module (includes = {DataModule.PresenterModule.class})
 public class DataModule {
     @Provides
     @Singleton
@@ -24,5 +27,11 @@ public class DataModule {
     @Singleton
     ContactDao providerContactDao(ContactDatabase db) {
         return db.contactDao();
+    }
+    @Module
+    public interface PresenterModule {
+        @Binds
+        @Singleton
+        DataRepository dataRepository(DataRepositoryImpl dataRepository);
     }
 }
