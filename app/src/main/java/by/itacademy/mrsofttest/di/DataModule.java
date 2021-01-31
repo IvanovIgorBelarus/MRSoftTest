@@ -1,11 +1,8 @@
 package by.itacademy.mrsofttest.di;
 
 import android.content.Context;
-
 import androidx.room.Room;
-
 import javax.inject.Singleton;
-
 import by.itacademy.mrsofttest.data.ContactDao;
 import by.itacademy.mrsofttest.data.ContactDatabase;
 import by.itacademy.mrsofttest.data.DataRepository;

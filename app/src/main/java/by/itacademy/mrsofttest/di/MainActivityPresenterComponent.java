@@ -1,7 +1,6 @@
 package by.itacademy.mrsofttest.di;
 
 import javax.inject.Singleton;
-
 import by.itacademy.mrsofttest.presenter.MainActivityPresenterImpl;
 import by.itacademy.mrsofttest.view.MainActivity;
 import dagger.Component;

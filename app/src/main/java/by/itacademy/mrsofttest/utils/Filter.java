@@ -2,9 +2,7 @@ package by.itacademy.mrsofttest.utils;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import by.itacademy.mrsofttest.model.Contact;
 
 public class Filter {

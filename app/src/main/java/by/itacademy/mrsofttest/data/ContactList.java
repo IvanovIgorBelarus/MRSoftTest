@@ -1,10 +1,8 @@
 package by.itacademy.mrsofttest.data;
 
 import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import by.itacademy.mrsofttest.model.Contact;
 
 public class ContactList {

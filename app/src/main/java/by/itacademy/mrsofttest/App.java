@@ -1,7 +1,6 @@
 package by.itacademy.mrsofttest;
 
 import android.app.Application;
-
 import by.itacademy.mrsofttest.di.AppModule;
 import by.itacademy.mrsofttest.di.DaggerMainActivityPresenterComponent;
 import by.itacademy.mrsofttest.di.MainActivityPresenterComponent;

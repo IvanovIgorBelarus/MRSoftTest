@@ -1,9 +1,7 @@
 package by.itacademy.mrsofttest.di;
 
 import android.content.Context;
-
 import javax.inject.Singleton;
-
 import by.itacademy.mrsofttest.utils.Filter;
 import by.itacademy.mrsofttest.utils.ItemAdapter;
 import dagger.Module;
