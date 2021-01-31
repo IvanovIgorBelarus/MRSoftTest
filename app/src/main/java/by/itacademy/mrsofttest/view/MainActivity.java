@@ -1,14 +1,12 @@
 package by.itacademy.mrsofttest.view;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import javax.inject.Inject;
-
 import by.itacademy.mrsofttest.App;
 import by.itacademy.mrsofttest.R;
 import by.itacademy.mrsofttest.presenter.MainActivityPresenter;

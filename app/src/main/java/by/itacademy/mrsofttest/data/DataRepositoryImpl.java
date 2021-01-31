@@ -1,9 +1,7 @@
 package by.itacademy.mrsofttest.data;
 
 import java.util.List;
-
 import javax.inject.Inject;
-
 import by.itacademy.mrsofttest.model.Contact;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;

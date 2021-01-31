@@ -1,11 +1,8 @@
 package by.itacademy.mrsofttest.di;
 
 import android.content.Context;
-
 import androidx.annotation.NonNull;
-
 import javax.inject.Singleton;
-
 import by.itacademy.mrsofttest.presenter.MainActivityPresenter;
 import by.itacademy.mrsofttest.presenter.MainActivityPresenterImpl;
 import dagger.Binds;

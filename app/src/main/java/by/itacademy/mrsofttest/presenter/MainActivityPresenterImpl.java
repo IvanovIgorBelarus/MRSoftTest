@@ -1,16 +1,12 @@
 package by.itacademy.mrsofttest.presenter;
 
 import android.app.Activity;
-
 import androidx.appcompat.widget.SearchView;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import by.itacademy.mrsofttest.App;
 import by.itacademy.mrsofttest.data.DataRepository;
 import by.itacademy.mrsofttest.model.Contact;
@@ -39,6 +35,7 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     @Override
     public void insertContacts() {
         if (!getPref()) {
+            dataRepository.insertContacts();
             setPref();
         }
     }
